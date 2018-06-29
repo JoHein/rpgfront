@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config=proxy.conf.json -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,7 +20,14 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@fortawesome/angular-fontawesome": "^0.1.1",
+    "@fortawesome/fontawesome-free": "^5.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "primeicons": "^1.0.0-beta.9",
+    "primeng": "^6.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
