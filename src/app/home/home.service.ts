@@ -10,17 +10,27 @@ export class HomeService {
 
 
 
-  private listChamp = '/api/champ';
+  private champUrl = '/api/champ';
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
   getListChamp(): Observable<Champ[]> {
-    return this.http.get<Champ[]>(this.listChamp)
+    return this.http.get<Champ[]>(this.champUrl)
       .pipe(
         tap(champ => this.log(`fetched list champ`)),
         catchError(this.handleError('getListChamp', [] ))
       );
   }
+
+  getChamp(techid: number): Observable<Champ> {
+    const url = `${this.champUrl}/${techid}`;
+    return this.http.get<Champ>(url).pipe(
+      tap(_ => this.log(`fetched champ id=${techid}`)),
+      catchError(this.handleError<Champ>(`getChamp techId=${techid}`))
+    );
+  }
+
+
 
   private log(message: string) {
     this.messageService.add('HomeService : ' + message);

@@ -1,6 +1,5 @@
 export class Champ {
   techid: number;
-
   nom: string;
   prenom: string;
   age: number;
@@ -12,6 +11,5 @@ export class Champ {
   endurance: number;
   charisme: number;
   description: string;
-  spe: string;
-
+  spe: number;
 }

@@ -12,6 +12,9 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextModule} from 'primeng/inputtext';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {ButtonModule} from 'primeng/button';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home/home.service';
@@ -19,6 +22,7 @@ import { HomeResolver } from './home/home.resolver';
 
 import { MessageComponent } from './message/message.component';
 import { FicheComponent } from './fiche/fiche.component';
+import { FicheService } from './fiche/fiche.service';
 
 
 @NgModule({
@@ -39,11 +43,15 @@ import { FicheComponent } from './fiche/fiche.component';
     InputTextModule,
     RadioButtonModule,
     InputSwitchModule,
-    FormsModule
+    FormsModule,
+    InputTextareaModule,
+    ButtonModule,
+    DropdownModule
   ],
   providers: [
     HomeService,
-    HomeResolver
+    HomeResolver,
+    FicheService
   ],
   bootstrap: [AppComponent]
 })
