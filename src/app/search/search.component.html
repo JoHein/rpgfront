@@ -1,0 +1,9 @@
+<div class="wrap">
+  <div class="search">
+    <p-autoComplete class="searchTerm" [(ngModel)]="text" [suggestions]="seatchchamps" (completeMethod)="search($event)" autoHighlight="true"></p-autoComplete>
+    <button type="submit" class="searchButton" onclick="updateList(text)">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
+

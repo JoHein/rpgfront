@@ -1,0 +1,33 @@
+.searchButton {
+  position: absolute;
+  right: -80px;
+  width: 40px;
+  height: 2.1em;
+  border: 1px solid #474747;
+  background: #474747;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 15%;
+  position: relative;
+  left: 10%;
+  padding-top:3em;
+  transform: translate(-50%, -50%);
+  margin-bottom: 3em;
+}
+
+.searchTerm{
+  position: absolute;
+}
+
+.searchTerm:focus {
+  box-shadow: none;
+}
+
+.ui-inputtext.ui-state-focus, .ui-inputtext:focus {
+  box-shadow: none;
+}

@@ -1,0 +1,27 @@
+
+<p-growl [(value)]="msgs"></p-growl>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
+
+<app-search></app-search>
+
+<section>
+
+  <p-accordion [multiple]="true">
+    <p-accordionTab *ngFor="let item of champList">
+      <p-header>
+       {{item.nom}}
+       {{item.prenom}}
+       {{item.spe}}
+      </p-header>
+      {{item.description}}
+      <div>
+        Charts
+      </div>
+      <div>
+        <p-splitButton label="Edition" icon="pi pi-check" (onClick)="update(item)" (onDropdownClick)="selectedChamp(item)" [model]="items" styleClass="ui-button-info"></p-splitButton>
+      </div>
+    </p-accordionTab>
+
+  </p-accordion>
+
+</section>

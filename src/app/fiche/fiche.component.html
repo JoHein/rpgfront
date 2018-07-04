@@ -1,0 +1,127 @@
+
+<p-growl [(value)]="msgs"></p-growl>
+
+<form #champForm="ngForm">
+<section>
+<div class="ui-inputgroup" >
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-user"></i>
+  </span>
+    <span class="ui-float-label">
+      <input required name="nom" [(ngModel)]="champ.nom" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Nom</label>
+    </span>
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-user" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input required name="prenom" [(ngModel)]="champ.prenom" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Prenom</label>
+    </span>
+</div>
+
+<div class="ui-inputgroup" style="margin-top: 1.5em;">
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-user" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input [(ngModel)]="champ.age" name="age" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Age</label>
+    </span>
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-user" ></i>
+  </span>
+  <div style="position: relative; left: 20px; top: 5px;">
+    <p-inputSwitch  onLabel="Femelle" offLabel="Male" [(ngModel)]="champ.gender" name="gender" ></p-inputSwitch>
+  </div>
+  </div>
+</section>
+
+<section style="margin-top: 1.5em; display: inline-block;">
+
+<div class="ui-inputgroup" style="margin-bottom: 1em;">
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-user-ninja" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input [(ngModel)]="champ.agilite" name="agilite" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Agilité</label>
+    </span>
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-gavel" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input [(ngModel)]="champ.force"  name="force" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Force</label>
+    </span>
+</div>
+
+<div class="ui-inputgroup" style="margin-bottom: 1em;">
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-book" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input [(ngModel)]="champ.intelect" name="intelect" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Intelligence</label>
+    </span>
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-magic" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input  [(ngModel)]="champ.magie"  name="magie" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Magie</label>
+    </span>
+</div>
+<div class="ui-inputgroup" >
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-hourglass-half" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input  [(ngModel)]="champ.endurance" name="endurance" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Endurance</label>
+    </span>
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fa fa-grin-stars" ></i>
+  </span>
+  <span class="ui-float-label">
+      <input [(ngModel)]="champ.charisme" name="charisme" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <label for="float-label">Charisme</label>
+    </span>
+
+</div>
+</section>
+
+<section style="margin-top: 1.5em; display: inline-block;vertical-align: top;">
+  <div class="ui-inputgroup" style="margin-bottom: 1em;">
+
+  <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
+    <i class="fab fa-pied-piper-hat"></i>
+  </span>
+      <p-dropdown  [options]="spe" [(ngModel)]="champ.spe" name="spe" [style]="{'width':'187px'}" editable="true" placeholder="Spécification"></p-dropdown>
+  </div>
+
+  <div class="ui-inputgroup" >
+    <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;height: 84px;">
+      <i class="fa fa-feather-alt"></i>
+    </span>
+    <span class="ui-float-label">
+        <textarea [(ngModel)]="champ.description" name="description"  id="float-label" pInputTextarea style="border-right: 1px solid rgb(214, 214, 214);height: 84px;"></textarea>
+        <label for="float-label">Description</label>
+    </span>
+  </div>
+</section>
+  <section style="margin-top: 1.5em; display: inline-block;vertical-align: top;border: 1px solid lightslategrey;">
+    Charts
+  </section>
+</form>
+
+<div>
+  <p-button [disabled]="!champForm.form.valid" (onClick)="addChampForm(champ)" icon="pi pi-check" label="Enregistrer"></p-button>
+</div>
