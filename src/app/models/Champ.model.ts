@@ -11,5 +11,5 @@ export class Champ {
   endurance: number;
   charisme: number;
   description: string;
-  spe: number;
+  spe: string;
 }

@@ -15,22 +15,27 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 import {ButtonModule} from 'primeng/button';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {DropdownModule} from 'primeng/dropdown';
+import {GrowlModule} from 'primeng/growl';
+import {MessageService} from 'primeng/components/common/messageservice';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home/home.service';
 import { HomeResolver } from './home/home.resolver';
 
-import { MessageComponent } from './message/message.component';
 import { FicheComponent } from './fiche/fiche.component';
 import { FicheService } from './fiche/fiche.service';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MessageComponent,
-    FicheComponent
+    FicheComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -46,12 +51,17 @@ import { FicheService } from './fiche/fiche.service';
     FormsModule,
     InputTextareaModule,
     ButtonModule,
-    DropdownModule
+    DropdownModule,
+    GrowlModule,
+    SplitButtonModule,
+    ConfirmDialogModule,
+    AutoCompleteModule
   ],
   providers: [
     HomeService,
     HomeResolver,
-    FicheService
+    FicheService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
