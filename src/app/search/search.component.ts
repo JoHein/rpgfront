@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Champ } from '../models/Champ.model';
 import { SearchService } from './search.service';
 import {ViewEncapsulation} from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -11,26 +12,57 @@ import {ViewEncapsulation} from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  seatchchamps: Champ[];
-  text: Champ;
+  value = '';
+  searchchamps: String[];
+  @Input() listchampssearch: Champ[];
+  @Output() bized = new EventEmitter<Champ[]>();
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
   }
 
-  // search(term: string): void {
-  //   this.searchService.searchChamp(term).subscribe( result => this.champs = result);
-  // }
-
   search(event) {
-    console.log('query.event', event.query);
-    this.searchService.searchChamp(event.query)
-      .subscribe(data => {
-        this.seatchchamps = data;
-    });
+    // console.log('query.event', event.query);
+    console.log('value', this.value);
+
+    if (this.value) {
+      this.searchService.searchChamp(this.value)
+        .subscribe(data => {
+          this.listchampssearch = data;
+          console.log('data du value', data);
+          this.transfert(data);
+          this.value = '';
+        });
+    } else {
+      this.searchService.searchChamp(event.query)
+        .subscribe(data => {
+          this.listchampssearch = data;
+          console.log('data du query', data);
+          this.transfert(data);
+        });
+    }
+
   }
-  // updateList(text: string): void {
-  //
-  // }
+
+  transfert(data: Champ[]): void {
+    this.searchchamps = [];
+    for ( let i = 0, len = data.length; i < len; i++) {
+      console.log(data[i].nom);
+      if (!this.searchchamps.includes(data[i].nom)) {
+        this.searchchamps.push(data[i].nom);
+      }
+    }
+    console.log('this.searchchamps', this.searchchamps);
+  }
+
+  updateList(): void {
+    this.bized.emit(this.listchampssearch);
+  }
+
+  onEnter(value: string) {
+    this.value = value;
+    this.search(null);
+  }
+
 }

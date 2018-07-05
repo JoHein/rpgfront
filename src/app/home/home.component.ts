@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from './home.service';
 import { Champ } from '../models/Champ.model';
 import {ActivatedRoute} from '@angular/router';
@@ -7,7 +7,6 @@ import {Router} from '@angular/router';
 import {MessageService} from 'primeng/components/common/messageservice';
 import { Message } from 'primeng/primeng';
 import {MenuItem} from 'primeng/api';
-import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -75,6 +74,12 @@ export class HomeComponent implements OnInit {
         }
       }
     );
+  }
+
+  onBized(listchampssearch: Champ[]) {
+    console.log('in controller dat is not' , listchampssearch);
+    this.champList = [];
+    this.champList = listchampssearch;
   }
 
 }

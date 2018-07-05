@@ -2,9 +2,9 @@
 <p-growl [(value)]="msgs"></p-growl>
 <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
 
-<app-search></app-search>
+<app-search [listchampssearch]="listchampssearch" (bized)="onBized($event)"></app-search>
 
-<section>
+<section style="position: relative; z-index: -10;">
 
   <p-accordion [multiple]="true">
     <p-accordionTab *ngFor="let item of champList">
