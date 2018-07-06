@@ -3,6 +3,7 @@ import { Champ } from '../models/Champ.model';
 import { SearchService } from './search.service';
 import {ViewEncapsulation} from '@angular/core';
 import { Observable } from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +18,7 @@ export class SearchComponent implements OnInit {
   @Input() listchampssearch: Champ[];
   @Output() bized = new EventEmitter<Champ[]>();
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }

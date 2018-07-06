@@ -16,6 +16,7 @@ export class FicheService {
   constructor(private http: HttpClient) { }
 
   addChamp(item: Champ): Observable<Champ> {
+    console.log('dans la request', item);
     return this.http.post<Champ>(this.champUrl, item , httpOptions)
       .pipe(
         tap((champ: Champ ) => console.log(`added hero w/ id=${champ.techid}`)),
@@ -23,6 +24,13 @@ export class FicheService {
       );
   }
 
+  getChamp(techid: string): Observable<Champ> {
+    const url = `${this.champUrl}/${techid}`;
+    return this.http.get<Champ>(url).pipe(
+      tap(_ => console.log(`fetched champ id=${techid}`)),
+      catchError(this.handleError<Champ>(`getChamp techId=${techid}`))
+    );
+  }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

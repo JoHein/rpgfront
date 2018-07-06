@@ -46,8 +46,7 @@ export class HomeComponent implements OnInit {
   }
 
   update(champ: Champ): void {
-    // routerlink to page FICHE filled with data
-    console.log('ICI update ', champ);
+    this.router.navigate(['fiche', champ.techid]);
   }
 
   delete(champ: Champ): void {

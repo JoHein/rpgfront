@@ -27,6 +27,8 @@ import { HomeResolver } from './home/home.resolver';
 
 import { FicheComponent } from './fiche/fiche.component';
 import { FicheService } from './fiche/fiche.service';
+import { FicheResolver } from './fiche/fiche.resolver';
+
 import { SearchComponent } from './search/search.component';
 
 
@@ -61,6 +63,7 @@ import { SearchComponent } from './search/search.component';
     HomeService,
     HomeResolver,
     FicheService,
+    FicheResolver,
     MessageService
   ],
   bootstrap: [AppComponent]

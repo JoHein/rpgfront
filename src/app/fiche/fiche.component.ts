@@ -4,6 +4,7 @@ import { FicheService } from './fiche.service';
 import {SelectItem} from 'primeng/api';
 import {MessageService} from 'primeng/components/common/messageservice';
 import { Message } from 'primeng/primeng';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-fiche',
@@ -17,7 +18,9 @@ export class FicheComponent implements OnInit {
   spe: SelectItem[];
   msgs: Message[] = [];
 
-  constructor(private ficheService: FicheService, private messageService: MessageService) {
+  constructor(private ficheService: FicheService,
+              private messageService: MessageService,
+              private route: ActivatedRoute) {
     this.spe = [
       {label: 'Guerrier', value: 'GUERRIER'},
       {label: 'Mage', value: 'MAGE'},
@@ -28,10 +31,23 @@ export class FicheComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      if (data.champ) {
+        console.log('cahmp coming from data :: ', data);
+        console.log('cahmp coming from data :: ', this.champ);
+
+        this.champ = data.champ;
+      } else {
+        this.champ = new Champ;
+        console.log('si pas de techId:: ', this.champ);
+
+      }
+    });
+
   }
 
   addChampForm(item: Champ): void {
-    console.log(item);
+    console.log('item', item);
     this.ficheService.addChamp(item)
       .subscribe(
         succ => {

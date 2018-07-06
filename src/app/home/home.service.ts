@@ -23,13 +23,7 @@ export class HomeService {
       );
   }
 
-  getChamp(techid: number): Observable<Champ> {
-    const url = `${this.champUrl}/${techid}`;
-    return this.http.get<Champ>(url).pipe(
-      tap(_ => console.log(`fetched champ id=${techid}`)),
-      catchError(this.handleError<Champ>(`getChamp techId=${techid}`))
-    );
-  }
+
 
   deleteChamp(champ: Champ | number): Observable<Champ> {
     const techid = typeof champ === 'number' ? champ : champ.techid;
