@@ -20,6 +20,7 @@ import {MessageService} from 'primeng/components/common/messageservice';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {ChartModule} from 'primeng/chart';
 
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home/home.service';
@@ -57,7 +58,8 @@ import { SearchComponent } from './search/search.component';
     GrowlModule,
     SplitButtonModule,
     ConfirmDialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    ChartModule
   ],
   providers: [
     HomeService,

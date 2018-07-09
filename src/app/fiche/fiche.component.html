@@ -46,7 +46,7 @@
     <i class="fa fa-user-ninja" ></i>
   </span>
   <span class="ui-float-label">
-      <input [(ngModel)]="champ.agilite" name="agilite" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <input [(ngModel)]="champ.agilite" (input)="updateRadar()" name="agilite" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
       <label for="float-label">Agilité</label>
     </span>
 
@@ -54,7 +54,7 @@
     <i class="fa fa-gavel" ></i>
   </span>
   <span class="ui-float-label">
-      <input [(ngModel)]="champ.force"  name="force" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <input [(ngModel)]="champ.force" (input)="updateRadar()" name="force" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
       <label for="float-label">Force</label>
     </span>
 </div>
@@ -65,7 +65,7 @@
     <i class="fa fa-book" ></i>
   </span>
   <span class="ui-float-label">
-      <input [(ngModel)]="champ.intelect" name="intelect" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <input [(ngModel)]="champ.intelect" (input)="updateRadar()" name="intelect" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
       <label for="float-label">Intelligence</label>
     </span>
 
@@ -73,17 +73,17 @@
     <i class="fa fa-magic" ></i>
   </span>
   <span class="ui-float-label">
-      <input  [(ngModel)]="champ.magie"  name="magie" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <input  [(ngModel)]="champ.magie" (input)="updateRadar()" name="magie" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
       <label for="float-label">Magie</label>
     </span>
 </div>
-<div class="ui-inputgroup" >
 
+<div class="ui-inputgroup" >
   <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
     <i class="fa fa-hourglass-half" ></i>
   </span>
   <span class="ui-float-label">
-      <input  [(ngModel)]="champ.endurance" name="endurance" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <input  [(ngModel)]="champ.endurance" (input)="updateRadar()" name="endurance" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
       <label for="float-label">Endurance</label>
     </span>
 
@@ -91,37 +91,40 @@
     <i class="fa fa-grin-stars" ></i>
   </span>
   <span class="ui-float-label">
-      <input [(ngModel)]="champ.charisme" name="charisme" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
+      <input [(ngModel)]="champ.charisme" (input)="updateRadar()" name="charisme" id="float-label" type="text" pKeyFilter="alphanum" pInputText style="border-right: 1px solid rgb(214, 214, 214);">
       <label for="float-label">Charisme</label>
     </span>
 
 </div>
-</section>
 
-<section style="margin-top: 1.5em; display: inline-block;vertical-align: top;">
-  <div class="ui-inputgroup" style="margin-bottom: 1em;">
 
+  <div class="ui-inputgroup" style="margin-top: 1em;" >
   <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;">
     <i class="fab fa-pied-piper-hat"></i>
   </span>
-      <p-dropdown  [options]="spe" [(ngModel)]="champ.spe" name="spe" [style]="{'width':'187px'}" editable="true" placeholder="Spécification"></p-dropdown>
+    <p-dropdown  [options]="spe" [(ngModel)]="champ.spe" name="spe" [style]="{'width':'190px'}" editable="true" placeholder="Spécification"></p-dropdown>
   </div>
 
-  <div class="ui-inputgroup" >
+    <div class="ui-inputgroup" style="margin-top: 1em;">
+
     <span class="ui-inputgroup-addon" style="position: relative; left: 2px; z-index: 10;height: 84px;">
-      <i class="fa fa-feather-alt"></i>
+      <i style="padding-top: 2em;" class="fa fa-feather-alt"></i>
     </span>
     <span class="ui-float-label">
-        <textarea [(ngModel)]="champ.description" name="description"  id="float-label" pInputTextarea style="border-right: 1px solid rgb(214, 214, 214);height: 84px;"></textarea>
+        <textarea [rows]="5" [cols]="48" [(ngModel)]="champ.description" name="description"  id="float-label" pInputTextarea style="border-right: 1px solid rgb(214, 214, 214);height: 84px;"></textarea>
         <label for="float-label">Description</label>
     </span>
+
   </div>
+
 </section>
-  <section style="margin-top: 1.5em; display: inline-block;vertical-align: top;border: 1px solid lightslategrey;">
-    Charts
+
+  <section style="margin-top: 1.5em; display: inline-block; position: absolute; top: 80px; margin-left: 2em;">
+
+    <p-chart type="radar" [data]="data" [options]="options" width="50vw" height="50vh"></p-chart>
   </section>
 </form>
 
-<div>
+<div style="margin-top: 1em;">
   <p-button [disabled]="!champForm.form.valid" (onClick)="addChampForm(champ)" icon="pi pi-check" label="Enregistrer"></p-button>
 </div>
