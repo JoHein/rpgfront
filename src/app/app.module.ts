@@ -21,6 +21,7 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ChartModule} from 'primeng/chart';
+import {CardModule} from 'primeng/card';
 
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home/home.service';
@@ -59,7 +60,8 @@ import { SearchComponent } from './search/search.component';
     SplitButtonModule,
     ConfirmDialogModule,
     AutoCompleteModule,
-    ChartModule
+    ChartModule,
+    CardModule
   ],
   providers: [
     HomeService,

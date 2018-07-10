@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+.ui-accordion .ui-accordion-header a { text-decoration : none !important; }
+
+p-accordionTab:nth-child(odd) .ui-accordion-header {
+  background: lightsteelblue;
+  border:none;
+  border-radius: 0;
+}
+
+p-accordionTab:nth-child(even) .ui-accordion-header {
+  background: white;
+  border:none;
+  border-radius: 0;
+}
+
+p-accordionTab:nth-child(odd) .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background: #72abdb;
+  border:none;
+  border-radius: 0;
+}
+
+p-accordionTab:nth-child(even) .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background: #ededed;
+  border:none;
+  border-radius: 0;
+}

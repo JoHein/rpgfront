@@ -6,17 +6,78 @@
 
 <section>
 
-  <p-accordion [multiple]="true">
-    <p-accordionTab *ngFor="let item of champList">
+  <p-accordion [multiple]="true" (onOpen)="onTabOpen($event)">
+    <p-accordionTab *ngFor="let item of champList; let i = index;">
       <p-header>
-       {{item.nom}}
-       {{item.prenom}}
-       {{item.spe}}
+
+        <img *ngIf="item.spe === 'PRETRE'" src="../../assets/images/pope-crown.svg" alt="priest">
+        <img *ngIf="item.spe === 'GUERRIER'" src="../../assets/images/crossed-swords.svg" alt="war">
+        <img *ngIf="item.spe === 'BANDIT'" src="../../assets/images/hood.svg" alt="bandit">
+        <img *ngIf="item.spe === 'SCOUT'" src="../../assets/images/high-shot.svg" alt="scout">
+        <img *ngIf="item.spe === 'MAGE'" src="../../assets/images/pointy-hat.svg" alt="mage">
+
+        {{item.nom}} {{item.prenom}}
       </p-header>
-      {{item.description}}
-      <div>
-        Charts
+
+      <div class="ui-g">
+        <div class="ui-g-7 ui-g-nopad">
+          <div class="ui-g-12">
+            <h5>{{item.spe}}</h5>
+            <table class="statstable">
+              <tbody>
+                <tr>
+                  <th>Agilité</th>
+                  <th>Force</th>
+                  <th>Intélligence</th>
+                  <th>Magie</th>
+                  <th>Endurance</th>
+                  <th>Charisme</th>
+                </tr>
+                <tr>
+                  <td>{{item.agilite}}</td>
+                  <td>{{item.force}}</td>
+                  <td>{{item.intelect}}</td>
+                  <td>{{item.magie}}</td>
+                  <td>{{item.endurance}}</td>
+                  <td>{{item.charisme}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="ui-g-12">
+
+            <p-card>
+            <table>
+              <tbody>
+              <tr>
+                <th style="text-align: left; background-color: white;">
+                  Déscription
+                </th>
+              </tr>
+              <tr>
+                <td style="text-align: left">{{item.description}}</td>
+              </tr>
+              </tbody>
+            </table>
+            </p-card>
+
+          </div>
+
+        </div>
+
+        <div class="ui-g-5">
+
+          <p-card>
+            <div>
+              <p-chart type="radar" [data]="listDataGraph[i]" [options]="options" width="30vw" height="30vh"></p-chart>
+            </div>
+          </p-card>
+
+        </div>
+
       </div>
+
       <div>
         <p-splitButton label="Edition" icon="pi pi-check" (onClick)="update(item)" (onDropdownClick)="selectedChamp(item)" [model]="items" styleClass="ui-button-info"></p-splitButton>
       </div>

@@ -12,8 +12,7 @@ import {MenuItem} from 'primeng/api';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ConfirmationService]
-
+  providers: [ConfirmationService],
 })
 export class HomeComponent implements OnInit {
 
@@ -21,6 +20,9 @@ export class HomeComponent implements OnInit {
   items: MenuItem[];
   msgs: Message[] = [];
   champ: Champ;
+  data = [];
+  listDataGraph = [];
+
 
   constructor(private homeService: HomeService,
               private route: ActivatedRoute,
@@ -34,15 +36,12 @@ export class HomeComponent implements OnInit {
     this.items = [
       {label: 'Suppression', icon: 'fa-close', command: () => { this.delete(this.champ); }},
     ];
+
+    this.listDataGraph = new Array(this.champList.length);
   }
 
   selectedChamp(item: Champ): void {
     this.champ = item;
-}
-
-  getChampList(): void {
-    this.homeService.getListChamp()
-      .subscribe(champList => this.champList = champList);
   }
 
   update(champ: Champ): void {
@@ -79,6 +78,47 @@ export class HomeComponent implements OnInit {
     console.log('in controller dat is not' , listchampssearch);
     this.champList = [];
     this.champList = listchampssearch;
+  }
+
+  onTabOpen(event) {
+
+    console.log(event.index);
+
+    this.data = {
+      labels: ['Agilité', 'Force', 'Intelligence', 'Magie', 'Endurance', 'Charisme'],
+      datasets: [
+        {
+          label: 'Stats',
+          backgroundColor: 'rgba(86, 97, 255,0.2)',
+          borderColor: 'rgba(11, 22, 183,1)',
+          pointBackgroundColor: 'rgba(73, 181, 244,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(11, 22, 183,1)',
+          pointRadius: 5,
+          pointHoverRadius: 6,
+          data: [this.champList[event.index].agilite, this.champList[event.index].force, this.champList[event.index].intelect,
+            this.champList[event.index].magie, this.champList[event.index].endurance, this.champList[event.index].charisme]
+        }
+      ]
+    };
+
+    this.options = {
+      spanGaps: false,
+      elements: {
+        line: {
+          tension: 0.000001
+        },
+      },
+      scale: {
+        ticks: {
+          beginAtZero: true
+        }
+      },
+    };
+
+    this.listDataGraph[event.index] = this.data;
+
   }
 
 }

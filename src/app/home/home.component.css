@@ -45,3 +45,48 @@ body{
   transform: translate(-50%, -50%);
   margin-bottom: 3em;
 }
+
+table {
+  margin-bottom: 2em;
+}
+
+.statstable tr th{
+  height: 2em;
+  color: #ffffff;
+}
+
+.statstable td{
+  height: 2em;
+  border-bottom: 1px solid #e0e3e5;
+}
+
+th {
+  width:8em;
+  text-align:center;
+  background-color: cornflowerblue;
+
+}
+
+td {
+  text-align:center;
+}
+
+img {
+  width: 2.3%;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  margin-left:0.5em;
+}
+
+/*.ui-accordion .ui-accordion-header a:nth-child(odd) {*/
+  /*background: red;*/
+/*}*/
+
+
+/*.ui-accordion .ui-accordion-header a:nth-child(even) {*/
+  /*background: blue;*/
+/*}*/
+
+/*.ui-accordion .ui-accordion-header a { text-decoration : none !important; }*/
+
+
