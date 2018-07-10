@@ -20,8 +20,9 @@ export class HomeComponent implements OnInit {
   items: MenuItem[];
   msgs: Message[] = [];
   champ: Champ;
-  data = [];
+  data: any;
   listDataGraph = [];
+  options: any;
 
 
   constructor(private homeService: HomeService,
