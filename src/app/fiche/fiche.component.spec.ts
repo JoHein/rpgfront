@@ -22,4 +22,5 @@ describe('FicheComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

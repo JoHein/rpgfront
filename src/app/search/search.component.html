@@ -1,12 +1,15 @@
 <div class="wrap"  style="position: relative; z-index: 10;">
   <div class="search">
-    <p-autoComplete  #box class="searchTerm" [minLength]="1" [suggestions]="searchchamps" (completeMethod)="search($event)"
-
-                     (keyup.enter)="onEnter(box.value)"></p-autoComplete>
+    <p-autoComplete  [(ngModel)]="value" class="searchTerm" [minLength]="1" [suggestions]="searchchamps" [autoHighlight]="true"
+                     (onClear)="clearField()"
+                     (completeMethod)="search()"
+                     (keyup.enter)="search()"
+                     (keydown.Tab)="search()"></p-autoComplete>
 
     <button class="searchButton" (click)="updateList()">
       <i class="fa fa-search"></i>
     </button>
   </div>
 </div>
+<p>{{value}}</p>
 

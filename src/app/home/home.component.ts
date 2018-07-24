@@ -78,12 +78,18 @@ export class HomeComponent implements OnInit {
   onBized(listchampssearch: Champ[]) {
     console.log('in controller dat is not' , listchampssearch);
     this.champList = [];
-    this.champList = listchampssearch;
+
+    if ( listchampssearch === undefined || listchampssearch.length === 0) {
+      this.homeService.getListChamp().subscribe(data => this.champList = data);
+    } else {
+      this.champList = listchampssearch;
+    }
+
   }
 
-  onTabOpen(event) {
+  onTabOpen(index: number) {
 
-    console.log(event.index);
+    console.log('index event :', index);
 
     this.data = {
       labels: ['Agilité', 'Force', 'Intelligence', 'Magie', 'Endurance', 'Charisme'],
@@ -98,8 +104,8 @@ export class HomeComponent implements OnInit {
           pointHoverBorderColor: 'rgba(11, 22, 183,1)',
           pointRadius: 5,
           pointHoverRadius: 6,
-          data: [this.champList[event.index].agilite, this.champList[event.index].force, this.champList[event.index].intelect,
-            this.champList[event.index].magie, this.champList[event.index].endurance, this.champList[event.index].charisme]
+          data: [this.champList[index].agilite, this.champList[index].force, this.champList[index].intelect,
+            this.champList[index].magie, this.champList[index].endurance, this.champList[index].charisme]
         }
       ]
     };
@@ -118,7 +124,7 @@ export class HomeComponent implements OnInit {
       },
     };
 
-    this.listDataGraph[event.index] = this.data;
+    this.listDataGraph[index] = this.data;
 
   }
 

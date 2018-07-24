@@ -22,6 +22,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ChartModule} from 'primeng/chart';
 import {CardModule} from 'primeng/card';
+import {DataScrollerModule} from 'primeng/datascroller';
 
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home/home.service';
@@ -61,7 +62,8 @@ import { SearchComponent } from './search/search.component';
     ConfirmDialogModule,
     AutoCompleteModule,
     ChartModule,
-    CardModule
+    CardModule,
+    DataScrollerModule
   ],
   providers: [
     HomeService,

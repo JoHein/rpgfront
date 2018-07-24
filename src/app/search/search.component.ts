@@ -23,27 +23,15 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  search(event) {
-    // console.log('query.event', event.query);
-    console.log('value', this.value);
+  search() {
 
-    if (this.value) {
       this.searchService.searchChamp(this.value)
         .subscribe(data => {
           this.listchampssearch = data;
           console.log('data du value', data);
           this.transfert(data);
-          this.value = '';
+          this.updateList();
         });
-    } else {
-      this.searchService.searchChamp(event.query)
-        .subscribe(data => {
-          this.listchampssearch = data;
-          console.log('data du query', data);
-          this.transfert(data);
-        });
-    }
-
   }
 
   transfert(data: Champ[]): void {
@@ -61,9 +49,12 @@ export class SearchComponent implements OnInit {
     this.bized.emit(this.listchampssearch);
   }
 
-  onEnter(value: string) {
-    this.value = value;
-    this.search(null);
+  clearField() {
+    console.log('clearField');
+    this.searchchamps = [];
+    this.listchampssearch = [];
+    this.bized.emit(this.listchampssearch);
+
   }
 
 }

@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 .ui-accordion .ui-accordion-header a { text-decoration : none !important; }
 
-p-accordionTab:nth-child(odd) .ui-accordion-header {
+p-dataScroller > div > div.ui-datascroller-content.ui-widget-content > ul > li:nth-child(odd) > p-accordion > div > p-accordiontab .ui-accordion-header{
   background: lightsteelblue;
   border:none;
   border-radius: 0;
 }
 
-p-accordionTab:nth-child(even) .ui-accordion-header {
+p-dataScroller > div > div.ui-datascroller-content.ui-widget-content > ul > li:nth-child(even) > p-accordion > div > p-accordiontab .ui-accordion-header {
   background: white;
   border:none;
   border-radius: 0;
@@ -23,4 +23,13 @@ p-accordionTab:nth-child(even) .ui-accordion-header:not(.ui-state-active):not(.u
   background: #ededed;
   border:none;
   border-radius: 0;
+}
+
+
+.ui-datascroller-header{
+  display: none;
+}
+
+body > app-root > div > app-home > section > p-datascroller > div > div.ui-datascroller-content.ui-widget-content{
+  border: none;
 }
