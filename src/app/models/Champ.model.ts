@@ -12,4 +12,5 @@ export class Champ {
   charisme: number;
   description: string;
   spe: string;
+  date: string;
 }

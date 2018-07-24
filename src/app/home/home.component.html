@@ -6,6 +6,10 @@
 
 <section>
 
+  <button (click)="orderByDate('spe')"> Spé</button>
+  <button (click)="orderByDate('nom')"> Nom</button>
+  <button (click)="orderByDate('date')"> Date</button>
+
 
   <p-dataScroller [value]="champList" [rows]="10" [inline]="true" scrollHeight="2000px">
     <ng-template let-item pTemplate="item" let-i="index">
@@ -19,7 +23,7 @@
             <img *ngIf="item.spe === 'SCOUT'" src="../../assets/images/high-shot.svg" alt="scout">
             <img *ngIf="item.spe === 'MAGE'" src="../../assets/images/pointy-hat.svg" alt="mage">
 
-            {{item.nom}} {{item.prenom}}
+            {{item.nom}} {{item.prenom}} - {{item.date | date: "dd / MM / y" }}
           </p-header>
 
           <div class="ui-g">

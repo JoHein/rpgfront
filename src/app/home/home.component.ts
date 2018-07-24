@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {MessageService} from 'primeng/components/common/messageservice';
 import { Message } from 'primeng/primeng';
 import {MenuItem} from 'primeng/api';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-home',
@@ -23,13 +24,15 @@ export class HomeComponent implements OnInit {
   data: any;
   listDataGraph = [];
   options: any;
+  order: false;
 
 
   constructor(private homeService: HomeService,
               private route: ActivatedRoute,
               private confirmationService: ConfirmationService,
               private router: Router,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private orderPipe: OrderPipe) {}
 
   ngOnInit() {
 
@@ -86,6 +89,17 @@ export class HomeComponent implements OnInit {
     }
 
   }
+
+
+  orderByDate(item) {
+  if (this.order) {
+    this.order = false;
+  } else {
+    this.order = true;
+  }
+    this.champList = this.orderPipe.transform(this.champList, item, this.order);
+  }
+
 
   onTabOpen(index: number) {
 

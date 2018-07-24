@@ -23,6 +23,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ChartModule} from 'primeng/chart';
 import {CardModule} from 'primeng/card';
 import {DataScrollerModule} from 'primeng/datascroller';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home/home.service';
@@ -63,7 +64,8 @@ import { SearchComponent } from './search/search.component';
     AutoCompleteModule,
     ChartModule,
     CardModule,
-    DataScrollerModule
+    DataScrollerModule,
+    OrderModule
   ],
   providers: [
     HomeService,

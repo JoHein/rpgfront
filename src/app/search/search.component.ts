@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Champ } from '../models/Champ.model';
 import { SearchService } from './search.service';
 import {ViewEncapsulation} from '@angular/core';
-import { Observable } from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -15,6 +14,7 @@ export class SearchComponent implements OnInit {
 
   value = '';
   searchchamps: String[];
+
   @Input() listchampssearch: Champ[];
   @Output() bized = new EventEmitter<Champ[]>();
 
@@ -56,5 +56,6 @@ export class SearchComponent implements OnInit {
     this.bized.emit(this.listchampssearch);
 
   }
+
 
 }
