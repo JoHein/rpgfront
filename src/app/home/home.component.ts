@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
   data: any;
   listDataGraph = [];
   options: any;
-  order: false;
-
+  order = false;
+  itemOrder = '';
 
   constructor(private homeService: HomeService,
               private route: ActivatedRoute,
@@ -97,9 +97,9 @@ export class HomeComponent implements OnInit {
   } else {
     this.order = true;
   }
+    this.itemOrder = item;
     this.champList = this.orderPipe.transform(this.champList, item, this.order);
   }
-
 
   onTabOpen(index: number) {
 

@@ -6,9 +6,25 @@
 
 <section>
 
-  <button (click)="orderByDate('spe')"> Spé</button>
-  <button (click)="orderByDate('nom')"> Nom</button>
-  <button (click)="orderByDate('date')"> Date</button>
+  <button  (click)="orderByDate('spe')">
+    <i [ngClass]="{'arrowsort up': order && itemOrder==='spe'}"
+    ></i>
+    <i [ngClass]="{'arrowsort down': !order && itemOrder==='spe'}"></i>
+    Spé</button>
+  <!--[ngClass]="{'arrowsort down':!order,'arrowsort up':order }" -->
+
+  <button   (click)="orderByDate('nom')">
+    <i [ngClass]="{'arrowsort up': order && itemOrder==='nom'}"
+    ></i>
+    <i [ngClass]="{'arrowsort down': !order && itemOrder==='nom'}"></i>
+    Nom
+  </button>
+  <button (click)="orderByDate('date')">
+    <i [ngClass]="{'arrowsort up': order && itemOrder==='date'}"
+    ></i>
+    <i [ngClass]="{'arrowsort down': !order && itemOrder==='date'}"></i>
+    Date
+  </button>
 
 
   <p-dataScroller [value]="champList" [rows]="10" [inline]="true" scrollHeight="2000px">
